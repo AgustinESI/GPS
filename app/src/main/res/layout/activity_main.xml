@@ -24,73 +24,208 @@
             android:gravity="center"
             android:text="Formulario de datos" />
 
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:stretchColumns="0">
 
-            <LinearLayout
-                android:layout_width="104dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="0">
 
                 <TextView
                     android:id="@+id/tv_labellat"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="Lat:" />
+                    android:text="Latitud:" />
+
+                <TextView
+                    android:id="@+id/tv_lat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="1">
 
                 <TextView
                     android:id="@+id/tv_labellon"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="lon:" />
+                    android:text="Longitud:" />
+
+                <TextView
+                    android:id="@+id/tv_lon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="2">
 
                 <TextView
                     android:id="@+id/tv_labelaltitude"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Altitude:" />
+                    android:text="Altitud:" />
 
+                <TextView
+                    android:id="@+id/tv_altitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="3">
 
                 <TextView
                     android:id="@+id/tv_labelaccuracy"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+
                     android:text="Accuracy:" />
+
+                <TextView
+                    android:id="@+id/tv_accuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="4">
 
                 <TextView
                     android:id="@+id/tv_labelspeed"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+
                     android:text="Speed:" />
+
+                <TextView
+                    android:id="@+id/tv_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="5">
 
                 <TextView
                     android:id="@+id/tv_labelsensor"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+
                     android:text="Sensor:" />
 
                 <TextView
+                    android:id="@+id/tv_sensor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cell Tower + Wifi" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="6">
+
+                <TextView
                     android:id="@+id/tv_labelupdates"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Updates:" />
 
+                <TextView
+                    android:id="@+id/tv_updates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Off" />
+            </TableRow>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="104dp"
+            <TableRow
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </LinearLayout>
+                android:layout_marginTop="16dp"
+                android:stretchColumns="7">
+
+                <Switch
+                    android:id="@+id/sw_locationsupdates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:scaleType="center"
+                    android:text="Location Updates" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="8">
+
+                <Switch
+                    android:id="@+id/sw_gps"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="GPS/SavePower" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="9">
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_lbladdress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Address:" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="10">
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/listDivider"
+                    tools:layout_editor_absoluteX="1dp" />
+            </TableRow>
+
+        </TableLayout>
     </LinearLayout>
 </LinearLayout>
