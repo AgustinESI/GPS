@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink_500"
+    app:layoutDescription="@xml/splash_screen_scene"
     tools:context=".SplashScreenActivity">
 
-    <ImageView
-        android:id="@+id/splashscreen_image"
-        android:layout_width="232dp"
-        android:layout_height="339dp"
+    <!--    <ImageView-->
+    <!--        android:id="@+id/splashscreen_image"-->
+    <!--            android:layout_width="244dp"-->
+    <!--            android:layout_height="249dp"-->
+    <!--            android:layout_marginStart="100dp"-->
+    <!--            android:layout_marginTop="40dp"-->
+    <!--            android:layout_marginEnd="100dp"-->
+    <!--            android:layout_marginBottom="80dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/mapa" />-->
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/kk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="80dp"
+        android:src="@drawable/meteo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mapa" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/splashscreen_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="100dp"
         android:fontFamily="@font/roboto_light"
-        android:text="-GPS-"
-        android:textSize="45sp"
+        android:text="METEO GPS"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/splashscreen_createdby"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/roboto_light"
-        android:text="By: Agustín Sánchez Martín"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/splashscreen_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
@@ -12,17 +13,28 @@
     android:paddingBottom="16dp"
     tools:context=".MainActivity">
 
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Formulario de datos" />
+            android:text="Localización Actual"
+            android:textColor="@color/black" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -35,197 +47,188 @@
                 android:stretchColumns="0">
 
                 <TextView
-                    android:id="@+id/tv_labellat"
+                    android:id="@+id/tv_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Latitud:" />
+                    android:text="Pais:"
+                    android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/tv_lat"
+                    android:id="@+id/tv_country_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.00" />
+                    android:textColor="@color/black" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
                 android:stretchColumns="1">
 
                 <TextView
-                    android:id="@+id/tv_labellon"
+                    android:id="@+id/tv_city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Longitud:" />
+                    android:text="Ciudad:"
+                    android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/tv_lon"
+                    android:id="@+id/tv_city_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.00" />
+                    android:textColor="@color/black" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
                 android:stretchColumns="2">
 
                 <TextView
-                    android:id="@+id/tv_labelaltitude"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Altitud:" />
-
-                <TextView
-                    android:id="@+id/tv_altitude"
+                    android:id="@+id/tv_postal_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.00" />
-            </TableRow>
+                    android:text="Código Postal:"
+                    android:textColor="@color/black" />
 
+                <TextView
+                    android:id="@+id/tv_postal_code_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black" />
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
                 android:stretchColumns="3">
 
                 <TextView
-                    android:id="@+id/tv_labelaccuracy"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-
-                    android:text="Accuracy:" />
-
-                <TextView
-                    android:id="@+id/tv_accuracy"
+                    android:id="@+id/tv_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.00" />
+                    android:text="Provincia:"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_state_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
                 android:stretchColumns="4">
-
-                <TextView
-                    android:id="@+id/tv_labelspeed"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-
-                    android:text="Speed:" />
-
-                <TextView
-                    android:id="@+id/tv_speed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0.00" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:stretchColumns="5">
-
-                <TextView
-                    android:id="@+id/tv_labelsensor"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-
-                    android:text="Sensor:" />
-
-                <TextView
-                    android:id="@+id/tv_sensor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cell Tower + Wifi" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:stretchColumns="6">
-
-                <TextView
-                    android:id="@+id/tv_labelupdates"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Updates:" />
-
-                <TextView
-                    android:id="@+id/tv_updates"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Off" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:stretchColumns="7">
-
-                <Switch
-                    android:id="@+id/sw_locationsupdates"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:scaleType="center"
-                    android:text="Location Updates" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:stretchColumns="8">
-
-                <Switch
-                    android:id="@+id/sw_gps"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="GPS/SavePower" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:stretchColumns="9">
 
                 <TextView
                     android:id="@+id/tv_address"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="Dirección:"
+                    android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/tv_lbladdress"
+                    android:id="@+id/tv_address_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Address:" />
+                    android:textColor="@color/black" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:stretchColumns="10">
+                android:stretchColumns="5">
 
-                <View
-                    android:id="@+id/divider"
+                <TextView
+                    android:id="@+id/tv_destino_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="?android:attr/listDivider"
-                    tools:layout_editor_absoluteX="1dp" />
+                    android:layout_marginTop="60dp"
+                    android:text="Lugar de viaje"
+                    android:textColor="@color/black" />
             </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="5">
+
+                <EditText
+                    android:id="@+id/et_destino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Destino"
+                    android:inputType="text"
+                    android:scaleType="center"
+                    android:textColor="@color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="6">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="Calcular" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="7">
+
+                <TextView
+                    android:id="@+id/tv_destino_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="8">
+
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_map"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="9">
+
+                <TextView
+                    android:id="@+id/resultado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resultado"
+                    android:textColor="@color/black" />
+            </TableRow>
+
 
         </TableLayout>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
