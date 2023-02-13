@@ -10,7 +10,7 @@ import androidx.cardview.widget.CardView;
 
 public class IndexActivity extends AppCompatActivity {
 
-    CardView ruta, tiempo, esi;
+    CardView index_cv_rute, index_cv_weather, index_cv_traffic, index_cv_galery, esi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +18,11 @@ public class IndexActivity extends AppCompatActivity {
         setContentView(R.layout.activity_index);
 
 
-        ruta = findViewById(R.id.ruta);
-        tiempo = findViewById(R.id.tiempo);
+        index_cv_rute = findViewById(R.id.index_cv_rute);
+        index_cv_weather = findViewById(R.id.index_cv_weather);
         esi = findViewById(R.id.esi);
+        index_cv_traffic = findViewById(R.id.index_cv_traffic);
+        index_cv_galery = findViewById(R.id.index_cv_galery);
 
         esi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +32,7 @@ public class IndexActivity extends AppCompatActivity {
             }
         });
 
-        ruta.setOnClickListener(new View.OnClickListener() {
+        index_cv_rute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(IndexActivity.this, MainActivity.class);
@@ -38,10 +40,31 @@ public class IndexActivity extends AppCompatActivity {
             }
         });
 
-        tiempo.setOnClickListener(new View.OnClickListener() {
+        index_cv_weather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(IndexActivity.this, WeatherActivity.class);
+                IndexActivity.this.startActivity(intent);
+            }
+        });
+
+        index_cv_traffic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public int hashCode() {
+                return super.hashCode();
+            }
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(IndexActivity.this, TrafficActivity.class);
+                IndexActivity.this.startActivity(intent);
+            }
+        });
+
+        index_cv_galery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(IndexActivity.this, GaleryActivity.class);
                 IndexActivity.this.startActivity(intent);
             }
         });

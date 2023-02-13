@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GaleryActivity">
+
+    <ProgressBar
+        android:id="@+id/galery_pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/weather_rl_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:background="@android:color/transparent"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:id="@+id/parentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:background="@drawable/white">
+
+
+                        <ImageView
+                            android:id="@+id/galery_iv_imagen"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentTop="false"
+                            android:layout_alignParentBottom="false"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:srcCompat="@drawable/ic_galery" />
+
+                        <RelativeLayout
+                            android:id="@+id/relative_layout_data"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/galery_iv_imagen"
+                            android:background="@drawable/white"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:id="@+id/galery_et_pais"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:text="Pais"
+                                android:textColor="@color/black"
+                                android:textSize="13dp" />
+
+                            <EditText
+                                android:id="@+id/galery_et_provincia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/galery_et_pais"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:text="Provincia"
+                                android:textColor="@color/black"
+                                android:textSize="13dp" />
+
+                            <EditText
+                                android:id="@+id/galery_et_ciudad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/galery_et_provincia"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:text="Ciudad"
+                                android:textColor="@color/black"
+                                android:textSize="13dp" />
+
+                            <EditText
+                                android:id="@+id/galery_et_codigo_postal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/galery_et_ciudad"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:text="Codigo postal"
+                                android:textColor="@color/black"
+                                android:textSize="13dp" />
+
+                            <EditText
+                                android:id="@+id/galery_et_direccion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/galery_et_codigo_postal"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:gravity="center_vertical"
+                                android:lines="3"
+                                android:maxLines="2"
+                                android:minLines="1"
+                                android:scrollbars="vertical"
+                                android:text="Dirección"
+                                android:textColor="@color/black"
+                                android:textSize="13dp" />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/relative_layout_1"
+                        android:background="@drawable/white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="@+id/relative_layout_1">
+
+                        <Button
+                            android:id="@+id/galery_b_open_galery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Arbrir galeria" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/relative_layout_2"
+                        android:background="@drawable/white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="@+id/relative_layout_2">
+
+                        <ImageView
+                            android:id="@+id/galery_iv_map"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="false"
+                            android:layout_alignParentBottom="false"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:srcCompat="@drawable/ruta" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>

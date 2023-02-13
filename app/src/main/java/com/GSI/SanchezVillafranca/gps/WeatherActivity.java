@@ -2,8 +2,13 @@ package com.GSI.SanchezVillafranca.gps;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
@@ -11,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -25,7 +31,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.GSI.SanchezVillafranca.gps.model.Position;
+import com.GSI.SanchezVillafranca.gps.model.localization.Position;
 import com.GSI.SanchezVillafranca.gps.model.TemperaturaRVAdapter;
 import com.GSI.SanchezVillafranca.gps.model.TemperaturaRVModal;
 import com.android.volley.Request;
@@ -115,35 +121,63 @@ public class WeatherActivity extends AppCompatActivity {
         locationRequest.setFastestInterval(2000);
 
 
-        weather_iv_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String nombre = weather_tit_city.getText().toString();
-                if (nombre.isEmpty()) {
-                    Toast.makeText(WeatherActivity.this, "Porfavor introduce el nombre de la ciudad", Toast.LENGTH_LONG).show();
-                } else {
+        weather_iv_search.setOnClickListener(view -> {
+            String nombre = weather_tit_city.getText().toString();
+            if (nombre.isEmpty()) {
+                Toast.makeText(WeatherActivity.this, "Porfavor introduce el nombre de la ciudad", Toast.LENGTH_LONG).show();
+            } else {
 
-                    weather_pb_loading.setVisibility(View.VISIBLE);
-                    weather_rl_home.setVisibility(View.GONE);
+                weather_pb_loading.setVisibility(View.VISIBLE);
+                weather_rl_home.setVisibility(View.GONE);
 
-                    weather_tv_ciudad.setText(nombre);
-                    getWeatherName(nombre);
-                }
+                weather_tv_ciudad.setText(nombre);
+                getWeatherName(nombre);
             }
         });
-
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         //De inicio ponemos los valores que recogemos de la localizacion actual
         getCurrentLocation();
-        //getWeatherPosition(new Position(position_start.getLat(), position_start.getLng()));
-        //weather_tv_ciudad.setText(city);
-        //weather_tit_city.setText(city);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.overflow, menu);
+        MenuItem menuItem = menu.findItem(R.id.overflow_tiempo);
+        menuItem.setEnabled(false);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        Intent intent = null;
+        switch (item.getItemId()) {
+            case R.id.overflow_ruta:
+                intent = new Intent(WeatherActivity.this, MainActivity.class);
+                this.startActivity(intent);
+                return true;
+            case R.id.overflow_tiempo:
+                intent = new Intent(WeatherActivity.this, WeatherActivity.class);
+                this.startActivity(intent);
+                return true;
+            case R.id.overflow_gelery:
+                intent = new Intent(WeatherActivity.this, GaleryActivity.class);
+                this.startActivity(intent);
+                return true;
+            case R.id.overflow_trafico:
+                intent = new Intent(WeatherActivity.this, TrafficActivity.class);
+                this.startActivity(intent);
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -211,6 +245,7 @@ public class WeatherActivity extends AppCompatActivity {
                 String condition = "";
                 String conditionIcon = "";
                 int day = 0;
+
                 try {
                     temperatura = response.getJSONObject("current").getString("temp_c");
                     weather_tv_temperatura.setText(temperatura + "ºC");
@@ -219,16 +254,7 @@ public class WeatherActivity extends AppCompatActivity {
                     condition = response.getJSONObject("current").getJSONObject("condition").getString("text");
                     Picasso.get().load("https:".concat(conditionIcon)).into(weather_iv_icon);
                     weather_tv_condition.setText(condition);
-                    day = 0;
-                    if (day == 1) {
-//                        File imgFile = new File("res/drawable-v24/sunny.jpg");
-//                        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-//                        ImageView myImage = (ImageView) findViewById(R.id.weather_iv_back);
-//                        myImage.setImageBitmap(myBitmap);
-                        Picasso.get().load("https://w0.peakpx.com/wallpaper/525/262/HD-wallpaper-sunny-day-bright-clouds-color-nature-new-nice-sky-sun.jpg").into(weather_iv_back);
-                    } else {
-                        Picasso.get().load("https://mfiles.alphacoders.com/772/772448.jpg").into(weather_iv_back);
-                    }
+                    setDayNight(day);
 
                     JSONObject forecast = response.getJSONObject("forecast");
                     JSONObject current = forecast.getJSONArray("forecastday").getJSONObject(0);
@@ -256,6 +282,40 @@ public class WeatherActivity extends AppCompatActivity {
         });
 
         queue.add(request);
+    }
+
+    private void setDayNight(int day) {
+
+        ImageView imageView = (ImageView) findViewById(R.id.weather_iv_back);
+        String color = "";
+        if (day == 1) {
+            color = "#000000";
+            imageView.setImageResource(R.drawable.sunny);
+        } else {
+            color = "#FFFFFF";
+            imageView.setImageResource(R.drawable.night);
+        }
+
+        TextView weather_tv_ciudad = findViewById(R.id.weather_tv_ciudad);
+        weather_tv_ciudad.setTextColor(Color.parseColor(color));
+
+        TextInputEditText weather_tit_city = findViewById(R.id.weather_tit_city);
+        weather_tit_city.setTextColor(Color.parseColor(color));
+
+        TextInputLayout weather_tpl_ciudad = findViewById(R.id.weather_tpl_ciudad);
+        weather_tpl_ciudad.setDefaultHintTextColor(ColorStateList.valueOf(Color.parseColor(color)));
+
+        ImageView weather_iv_search = findViewById(R.id.weather_iv_search);
+        weather_iv_search.setColorFilter(new PorterDuffColorFilter(Color.parseColor(color), PorterDuff.Mode.SRC_ATOP));
+
+        TextView weather_tv_temperatura = findViewById(R.id.weather_tv_temperatura);
+        weather_tv_temperatura.setTextColor(Color.parseColor(color));
+
+        TextView weather_tv_condition = findViewById(R.id.weather_tv_condition);
+        weather_tv_condition.setTextColor(Color.parseColor(color));
+
+        TextView weather_tv_pronostico = findViewById(R.id.weather_tv_pronostico);
+        weather_tv_pronostico.setTextColor(Color.parseColor(color));
     }
 
 
@@ -373,11 +433,5 @@ public class WeatherActivity extends AppCompatActivity {
         return (double) tmp / factor;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.overflow, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
 
 }

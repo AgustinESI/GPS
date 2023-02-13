@@ -1,234 +1,449 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
     tools:context=".MainActivity">
 
-    <ProgressBar
-        android:id="@+id/pb_loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
-
-
-    <LinearLayout
-        android:id="@+id/content"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:id="@+id/textView_main"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Localización Actual"
-            android:textColor="@color/black" />
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Ruta"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:fontFamily="@font/roboto_medium"
+            app:layout_constraintEnd_toStartOf="@+id/imageView_main"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_main" />
 
-        <TableLayout
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Cálculo de la ruta desde la posición actual"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/imageView_main"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_main" />
+
+        <ImageView
+            android:id="@+id/imageView_main"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_main"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_main"
+            app:srcCompat="@drawable/ruta" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_main">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ruta"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@color/background">
+
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/table_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/background"
+                    android:orientation="horizontal"
+                    android:stretchColumns="0">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:stretchColumns="0">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@color/background">
+
+                            <TextView
+                                android:id="@+id/title"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:text="Posición actual"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+
+                        </LinearLayout>
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:stretchColumns="0">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@color/background">
+
+                            <TextView
+                                android:id="@+id/tv_country"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_weight="0.4"
+                                android:text="Pais:"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_country_content"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_weight="1"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:stretchColumns="1">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@color/background">
+
+                            <TextView
+                                android:id="@+id/tv_state"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_weight="0.4"
+                                android:text="Provincia:"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_state_content"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_weight="1"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:stretchColumns="0">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@color/background">
+
+                            <TextView
+                                android:id="@+id/tv_city"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_weight="0.4"
+                                android:text="Ciudad:"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_city_content"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_weight="1"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:stretchColumns="1">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@color/background">
+
+                            <TextView
+                                android:id="@+id/tv_postal_code"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_weight="0.4"
+                                android:text="Código Postal:"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_postal_code_content"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_weight="1"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:stretchColumns="1">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@color/background">
+
+                            <TextView
+                                android:id="@+id/tv_address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_weight="0.4"
+                                android:text="Dirección:"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_address_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="right"
+                                android:layout_weight="1"
+                                android:lines="4"
+                                android:maxLines="4"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:stretchColumns="1">
+
+                        <LinearLayout
+                            android:id="@+id/weather_ll_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/main_tv_ciudad"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/main_tpl_ciudad"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="4.5"
+                                android:background="@android:color/transparent"
+                                android:hint="Lugar de viaje"
+                                android:textColorHint="@color/black"
+                                app:hintTextColor="@color/black">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/main_tit_city"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@android:color/transparent"
+                                    android:importantForAutofill="no"
+                                    android:inputType="text"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/main_iv_search"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="10dp"
+                                android:layout_weight="0.5"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_search"
+                                app:tint="@color/black" />
+                        </LinearLayout>
+                    </TableRow>
+                </TableLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/main_ly_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:stretchColumns="0">
+            android:layout_margin="10dp"
+            android:background="@color/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-            <TableRow
+            <TextView
+                android:id="@+id/main_tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="0.4"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/main_ll_select"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_ly_title">
+
+
+            <Spinner
+                android:id="@+id/main_s_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/main_ll_indications"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_ll_select">
+
+
+            <FrameLayout
+                android:id="@+id/indications"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:stretchColumns="0">
+                android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/tv_country"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pais:"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/tv_country_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="1">
-
-                <TextView
-                    android:id="@+id/tv_city"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ciudad:"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/tv_city_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="2">
-
-                <TextView
-                    android:id="@+id/tv_postal_code"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Código Postal:"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/tv_postal_code_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="3">
-
-                <TextView
-                    android:id="@+id/tv_state"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Provincia:"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/tv_state_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="4">
-
-                <TextView
-                    android:id="@+id/tv_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dirección:"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/tv_address_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="5">
-
-                <TextView
-                    android:id="@+id/tv_destino_desc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
-                    android:text="Lugar de viaje"
-                    android:textColor="@color/black" />
-            </TableRow>
-
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="5">
-
-                <EditText
-                    android:id="@+id/et_destino"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Destino"
-                    android:inputType="text"
-                    android:scaleType="center"
-                    android:textColor="@color/black" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="6">
-
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:text="Calcular" />
-            </TableRow>
-
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="7">
-
-                <TextView
-                    android:id="@+id/tv_destino_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="8">
-
-                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:id="@+id/container"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/main_rv_indicaciones"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-                    <ImageView
-                        android:id="@+id/iv_map"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:textColor="@color/black" />
-                </FrameLayout>
+            </FrameLayout>
 
-            </TableRow>
+        </LinearLayout>
 
 
-            <TableRow
+        <LinearLayout
+            android:id="@+id/main_ll_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_ll_indications">
+
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="9">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/resultado"
+                <ProgressBar
+                    android:id="@+id/main_progress_bar"
+                    style="?android:attr/progressBarStyleLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resultado"
-                    android:textColor="@color/black" />
-            </TableRow>
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/iv_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:adjustViewBounds="true"
+                    android:textColor="@color/black"
+                    android:visibility="visible" />
+            </FrameLayout>
+        </LinearLayout>
 
 
-        </TableLayout>
-    </LinearLayout>
-</RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

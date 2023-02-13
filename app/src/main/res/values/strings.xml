@@ -12,4 +12,16 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_galery">GaleryActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="DEFAULT_PATH_MAP_VIEW">https://image.maps.ls.hereapi.com/mia/1.6/mapview</string>
+    <string name="API_KEY">mhJ_xWWuQO18igvPbtrJMmSEwCVdbwm8BQzhrSJSAO0</string>
 </resources>

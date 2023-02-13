@@ -73,7 +73,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/ruta"
+                android:id="@+id/index_cv_rute"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -109,7 +109,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tiempo"
+                android:id="@+id/index_cv_weather"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -156,7 +156,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/trafico"
+                android:id="@+id/index_cv_galery"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -174,7 +174,7 @@
                         android:layout_below="@id/bus1"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="Tráfico"
+                        android:text="Galeria"
                         android:textColor="@color/black"
                         android:textSize="24sp"
                         app:fontFamily="@font/roboto_medium" />
@@ -185,12 +185,12 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/trafico" />
+                        app:srcCompat="@drawable/ic_photo" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/gps"
+                android:id="@+id/index_cv_traffic"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -208,7 +208,7 @@
                         android:layout_below="@id/train"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="GPS"
+                        android:text="Tráfico"
                         android:textColor="@color/black"
                         android:textSize="24sp"
                         app:fontFamily="@font/roboto_medium" />
@@ -219,7 +219,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/gps" />
+                        app:srcCompat="@drawable/trafico" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -236,11 +236,11 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/esi"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:id="@+id/esi">
+                android:layout_weight="1">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -298,8 +298,8 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="©Derechos Reservados 2023 Agustín Sáncez &amp; Ángel Villafranca."
+                        android:text="©Derechos Reservados 2023 Agustín Sáncez &amp; Ángel Villafranca.
+\n Trabajo teórico propuesto GPS"
                         android:textColor="@color/black"
                         android:textSize="10sp"
                         app:fontFamily="@font/roboto_medium" />

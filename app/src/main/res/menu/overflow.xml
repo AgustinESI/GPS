@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/mapa"
-        android:title="Mapa" />
+        android:id="@+id/overflow_ruta"
+        android:title="Ruta" />
     <item
-        android:id="@+id/tiempo"
+        android:id="@+id/overflow_tiempo"
         android:title="Tiempo" />
     <item
-        android:id="@+id/ruta"
-        android:title="Ruta" />
+        android:id="@+id/overflow_gelery"
+        android:title="Galeria" />
+    <item
+        android:id="@+id/overflow_trafico"
+        android:title="Trafico" />
+
 </menu>
