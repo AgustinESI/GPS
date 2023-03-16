@@ -75,9 +75,9 @@ EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O 
 <!-- CONTACT -->
 ## Contact
 
-Agustín Sánchez Martín - [@your_github](https://github.com/AgustinESI) - Agustin.Sanchez9@alu.uclm.es
+Agustín Sánchez Martín - [GitHub](https://github.com/AgustinESI) - Agustin.Sanchez9@alu.uclm.es
 </br>
-Ángel Villafranca Iniesta - [@your_github](http://example.com/) - Angel.Villafranca@alu.uclm.es
+Ángel Villafranca Iniesta - [GitHub](http://example.com/) - Angel.Villafranca@alu.uclm.es
 
 Project Link: [https://github.com/AgustinESI/GPS](https://github.com/AgustinESI/GPS)
 
