@@ -41,7 +41,13 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+La aplicación esta compuesta de módulos diferentes de los que hace uso de la localización de forma diferente con el fin de aumentar la funcionalidad de la aplicación:
+* Generación de una ruta
+* Tiempo
+* Gasolineras
+* Galeria
+* Trayecto
+
 
 _Para mas información, acudir a la [Documentación](https://github.com/AgustinESI/GPS/wiki/Descripci%C3%B3n)_
 
