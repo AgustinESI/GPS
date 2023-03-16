@@ -36,7 +36,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * ![Windows](https://camo.githubusercontent.com/822807a1e77754e8f7eda38b7ca7af442d261b38e332d4ce5b3154526221c379/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d57696e646f777326636f6c6f723d303037384436266c6f676f3d57696e646f7773266c6f676f436f6c6f723d464646464646266c6162656c3d)
 * ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 
-<a href="#top" style="position: fixed; bottom: 20px; right: 0;">Back to top ↑</a>
+<p align="right">(<a href="#top" style="position: fixed; bottom: 20px; right: 0;">Back to top ↑</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
