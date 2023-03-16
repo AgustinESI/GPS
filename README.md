@@ -77,6 +77,7 @@ Agustín Sánchez Martín - [@your_github](https://github.com/AgustinESI) - Agus
 
 Project Link: [https://github.com/AgustinESI/GPS](https://github.com/AgustinESI/GPS)
 
+## Other Links
 * [OsmDroid](https://github.com/osmdroid/osmdroid 'OsmDroid')
 * [Android Doc](https://en.wikipedia.org/wiki/Hobbit#Lifestyle (Android Doc))
 * [OsmDroid](<https://osmdroid.github.io/osmdroid/How-to-use-the-osmdroid-library.html> "OsmDroid")
