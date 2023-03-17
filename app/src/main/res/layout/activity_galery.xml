@@ -188,7 +188,7 @@
                             android:padding="4dp"
                             android:visibility="gone"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:srcCompat="@drawable/ruta" />
+                            app:srcCompat="@drawable/ic_location" />
 
                     </RelativeLayout>
                 </RelativeLayout>

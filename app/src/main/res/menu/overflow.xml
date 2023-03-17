@@ -12,5 +12,8 @@
     <item
         android:id="@+id/overflow_trafico"
         android:title="Trafico" />
+    <item
+        android:id="@+id/overflow_map"
+        android:title="GPS" />
 
 </menu>

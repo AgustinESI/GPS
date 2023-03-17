@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="4dp"
+    android:background="@android:color/transparent"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="8dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@id/gas_station_ll_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:stretchColumns="0">
+
+                <EditText
+                    android:id="@+id/gas_station_rv_localization"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_toRightOf="@+id/gas_station_rv_icon_95"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="AUTOVIA A-31 KM. 140"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+            </TableRow>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gas_station_ll_1">
+
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/table_layout2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:background="@color/background"
+                android:orientation="horizontal"
+                android:stretchColumns="0">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="0">
+
+                    <LinearLayout
+                        android:id="@+id/gas_station_rl_95"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/gas_station_rv_icon_95"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentTop="false"
+                            android:layout_alignParentBottom="false"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            android:src="@drawable/gasolina_efitec_95" />
+
+                        <EditText
+                            android:id="@+id/gas_station_rv_et_indications_95"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_toRightOf="@+id/gas_station_rv_icon_95"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:enabled="false"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            android:text="1.60€/L"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="0">
+
+                    <LinearLayout
+                        android:id="@+id/gas_station_rl_98"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/gas_station_rv_icon_98"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentTop="false"
+                            android:layout_alignParentBottom="false"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            android:src="@drawable/gasolina_efitec_98" />
+
+                        <EditText
+                            android:id="@+id/gas_station_rv_et_indications_98"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_toRightOf="@+id/gas_station_rv_icon_98"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:enabled="false"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            android:text="1.78€/L"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="0">
+
+                    <LinearLayout
+                        android:id="@+id/gas_station_rl_e"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/gas_station_rv_icon_e"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentTop="false"
+                            android:layout_alignParentBottom="false"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/image_border_radius"
+                            android:clipToOutline="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:outlineProvider="background"
+                            android:padding="4dp"
+                            android:src="@drawable/diesel_e_plus" />
+
+                        <EditText
+                            android:id="@+id/gas_station_rv_et_e"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_toRightOf="@+id/gas_station_rv_icon_e"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:enabled="false"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            android:text="1.82€/L"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="0">
+
+                    <LinearLayout
+                        android:id="@+id/gas_station_rl_e10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/gas_station_rv_icon_e10"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentTop="false"
+                            android:layout_alignParentBottom="false"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/image_border_radius"
+                            android:clipToOutline="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:outlineProvider="background"
+                            android:padding="4dp"
+                            android:src="@drawable/diesel_10e_plus" />
+
+                        <EditText
+                            android:id="@+id/gas_station_rv_et_e10"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_toRightOf="@+id/gas_station_rv_icon_e10"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:enabled="false"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            android:text="1.82€/L"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+
+
+            <TableLayout
+                android:id="@+id/table_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/gas_station_rv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:gravity="center_vertical"
+                        android:padding="4dp"
+                        android:text="REPSOL"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <EditText
+                        android:id="@+id/gas_station_rv_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:gravity="center_vertical"
+                        android:padding="4dp"
+                        android:text="L-D: 07:00-23:00"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/gas_station_rv_time"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+                        <Button
+                            android:id="@+id/gas_station_button_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Como llegar" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

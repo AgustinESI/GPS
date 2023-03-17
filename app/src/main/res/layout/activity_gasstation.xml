@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".GasStationActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:background="@color/background">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_main"
+            android:id="@+id/gas_station_toolbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/background"
@@ -26,47 +26,47 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView_main"
+            android:id="@+id/gas_station_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:text="Ruta"
+            android:text="Gasolineras"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:fontFamily="@font/roboto_medium"
-            app:layout_constraintEnd_toStartOf="@+id/imageView_main"
+            app:layout_constraintEnd_toStartOf="@+id/gas_station_imageview"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_main" />
+            app:layout_constraintTop_toBottomOf="@+id/gas_station_toolbar" />
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/gas_station_textview2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:text="Cálculo de la ruta desde la posición actual"
+            android:text="Localización de gasolineras desde la posición actual"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/imageView_main"
+            app:layout_constraintEnd_toStartOf="@+id/gas_station_imageview"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_main" />
+            app:layout_constraintTop_toBottomOf="@+id/gas_station_textview" />
 
         <ImageView
-            android:id="@+id/imageView_main"
+            android:id="@+id/gas_station_imageview"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView_main"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_main"
-            app:srcCompat="@drawable/ic_location" />
+            app:layout_constraintStart_toEndOf="@+id/gas_station_textview"
+            app:layout_constraintTop_toBottomOf="@+id/gas_station_toolbar"
+            app:srcCompat="@drawable/ic_gas_station" />
 
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/gas_station_linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -74,19 +74,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_main">
+            app:layout_constraintTop_toBottomOf="@+id/gas_station_imageview">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/ruta"
+                android:id="@+id/gas_station_currentlocation"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:background="@color/background">
 
-                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:id="@+id/table_layout"
+                <TableLayout
+                    android:id="@+id/gas_station_table_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/background"
@@ -105,7 +104,7 @@
                             android:background="@color/background">
 
                             <TextView
-                                android:id="@+id/title"
+                                android:id="@+id/gas_station_title"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -130,7 +129,7 @@
                             android:background="@color/background">
 
                             <TextView
-                                android:id="@+id/tv_country"
+                                android:id="@+id/gas_station_tv_country"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left"
@@ -139,7 +138,7 @@
                                 android:textColor="@color/black" />
 
                             <TextView
-                                android:id="@+id/tv_country_content"
+                                android:id="@+id/gas_station_tv_country_content"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
@@ -161,7 +160,7 @@
                             android:background="@color/background">
 
                             <TextView
-                                android:id="@+id/tv_state"
+                                android:id="@+id/gas_station_tv_state"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left"
@@ -170,7 +169,7 @@
                                 android:textColor="@color/black" />
 
                             <TextView
-                                android:id="@+id/tv_state_content"
+                                android:id="@+id/gas_station_tv_state_content"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
@@ -201,7 +200,7 @@
                                 android:textColor="@color/black" />
 
                             <TextView
-                                android:id="@+id/tv_city_content"
+                                android:id="@+id/gas_station_tv_city_content"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left"
@@ -224,7 +223,7 @@
                             android:background="@color/background">
 
                             <TextView
-                                android:id="@+id/tv_postal_code"
+                                android:id="@+id/gas_station_tv_postal_code"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left"
@@ -233,7 +232,7 @@
                                 android:textColor="@color/black" />
 
                             <TextView
-                                android:id="@+id/tv_postal_code_content"
+                                android:id="@+id/gas_station_tv_postal_code_content"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
@@ -255,7 +254,7 @@
                             android:background="@color/background">
 
                             <TextView
-                                android:id="@+id/tv_address"
+                                android:id="@+id/gas_station_tv_address"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left"
@@ -264,7 +263,7 @@
                                 android:textColor="@color/black" />
 
                             <TextView
-                                android:id="@+id/tv_address_content"
+                                android:id="@+id/gas_station_tv_address_content"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="right"
@@ -283,46 +282,28 @@
                         android:stretchColumns="1">
 
                         <LinearLayout
-                            android:id="@+id/weather_ll_edt"
+                            android:id="@+id/weather_ll_sb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/main_tv_ciudad"
                             android:orientation="horizontal"
                             android:weightSum="5">
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/main_tpl_ciudad"
+                            <SeekBar
+                                android:id="@+id/gas_station_sb"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="4.5"
-                                android:background="@android:color/transparent"
-                                android:hint="Lugar de viaje"
-                                android:textColorHint="@color/black"
-                                app:hintTextColor="@color/black">
+                                android:layout_weight="4"
+                                android:max="100"
+                                android:progress="10"></SeekBar>
 
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/main_tit_city"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:background="@android:color/transparent"
-                                    android:importantForAutofill="no"
-                                    android:inputType="text"
-                                    android:singleLine="true"
-                                    android:textColor="@color/black"
-                                    android:textSize="15dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <ImageView
-                                android:id="@+id/main_iv_search"
+                            <TextView
+                                android:id="@+id/gas_station_sb_value"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0.5"
-                                android:background="@android:color/transparent"
-                                android:src="@drawable/ic_search"
-                                app:tint="@color/black" />
+                                android:layout_weight="1"
+                                android:text="10 Km"
+                                android:textSize="15dp" />
+
                         </LinearLayout>
                     </TableRow>
                 </TableLayout>
@@ -331,30 +312,7 @@
 
 
         <LinearLayout
-            android:id="@+id/main_ly_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:background="@color/background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-            <TextView
-                android:id="@+id/main_tv_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_weight="0.4"
-                android:textColor="@color/black"
-                android:visibility="gone" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/main_ll_select"
+            android:id="@+id/main_ll_gas_stations"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -363,43 +321,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_ly_title">
-
-
-            <Spinner
-                android:id="@+id/main_s_dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/main_ll_indications"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_ll_select">
-
+            app:layout_constraintTop_toBottomOf="@+id/gas_station_linearLayout">
 
             <FrameLayout
-                android:id="@+id/indications"
+                android:id="@+id/gas_station_fl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone">
+                android:visibility="visible">
+
+                <ProgressBar
+                    android:id="@+id/gas_progress_bar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:visibility="visible" />
+
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/main_rv_indicaciones"
+                    android:id="@+id/gas_station_rv_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             </FrameLayout>
@@ -408,7 +354,7 @@
 
 
         <LinearLayout
-            android:id="@+id/main_ll_map"
+            android:id="@+id/gas_station_ll_map"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -417,28 +363,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_ll_indications">
+            app:layout_constraintTop_toBottomOf="@+id/main_ll_gas_stations">
 
             <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ProgressBar
-                    android:id="@+id/main_progress_bar"
-                    style="?android:attr/progressBarStyleLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
-                    android:visibility="gone" />
-
                 <ImageView
-                    android:id="@+id/iv_map"
+                    android:id="@+id/gas_iv_map"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"
                     android:adjustViewBounds="true"
+                    android:src="@drawable/ic_map"
                     android:textColor="@color/black"
                     android:visibility="gone" />
             </FrameLayout>

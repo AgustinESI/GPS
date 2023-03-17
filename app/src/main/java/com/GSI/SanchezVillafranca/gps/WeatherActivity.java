@@ -98,7 +98,7 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         weather_pb_loading = findViewById(R.id.weather_pb_loading);
         weather_rl_home = findViewById(R.id.weather_rl_home);
         weather_iv_back = findViewById(R.id.weather_iv_back);
@@ -171,7 +171,7 @@ public class WeatherActivity extends AppCompatActivity {
                 this.startActivity(intent);
                 return true;
             case R.id.overflow_trafico:
-                intent = new Intent(WeatherActivity.this, TrafficActivity.class);
+                intent = new Intent(WeatherActivity.this, GasStationActivity.class);
                 this.startActivity(intent);
                 return true;
 

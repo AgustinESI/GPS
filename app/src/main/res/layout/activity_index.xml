@@ -103,7 +103,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ruta" />
+                        app:srcCompat="@drawable/ic_location" />
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -208,7 +208,7 @@
                         android:layout_below="@id/train"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="Tráfico"
+                        android:text="Gasolineras"
                         android:textColor="@color/black"
                         android:textSize="24sp"
                         app:fontFamily="@font/roboto_medium" />
@@ -219,7 +219,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/trafico" />
+                        app:srcCompat="@drawable/ic_gas_station" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -236,7 +236,55 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/esi"
+                android:id="@+id/path"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/background">
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cycle"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="ESI"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        app:fontFamily="@font/roboto_medium" />
+
+                    <ImageView
+                        android:id="@+id/path_iv"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        app:srcCompat="@drawable/esi" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/path_cv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -254,7 +302,7 @@
                         android:layout_below="@id/cycle"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="ESI"
+                        android:text="Trayectoria"
                         android:textColor="@color/black"
                         android:textSize="24sp"
                         app:fontFamily="@font/roboto_medium" />
@@ -265,7 +313,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/esi" />
+                        app:srcCompat="@drawable/ic_map" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -273,7 +321,7 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -290,7 +338,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/background">
+                    android:background="@color/background"
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/textView9"
@@ -298,10 +347,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:text="©Derechos Reservados 2023 Agustín Sáncez &amp; Ángel Villafranca.
-\n Trabajo teórico propuesto GPS"
+                        android:gravity="center"
+                        android:padding="10dp"
                         android:textColor="@color/black"
-                        android:textSize="10sp"
+                        android:textSize="18sp"
                         app:fontFamily="@font/roboto_medium" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

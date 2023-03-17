@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
     private Map<String, Position> locationData = new HashMap<String, Position>();
     private FrameLayout indications;
 
+    private Object selectedItem;
+
     //https://www.google.es/maps/dir/'38.9862600,-3.9290700'/40.0749200,-2.1361500/data=!3m1!4b1!4m7!4m6!1m3!2m2!1d-3.92907!2d38.98626!1m0!3e0
 
     @Override
@@ -172,6 +174,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        if (intent != null) {
+            selectedItem = intent.getSerializableExtra("selectedItem");
+            if (selectedItem != null) {
+                List<Address> addresses;
+                String[] latlng = ((String) selectedItem).split("\\|");
+                try {
+                    addresses = geocoder.getFromLocation(Double.parseDouble(latlng[0]), Double.parseDouble(latlng[1]), 1);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                if (!addresses.isEmpty()) {
+                    String address = addresses.get(0).getAddressLine(0);
+                    String postalCode = addresses.get(0).getPostalCode();
+                    String city = addresses.get(0).getLocality();
+
+
+                    sendRequestGeocode(city + " " + postalCode + " " + address);
+                }
+            }
+        }
     }
 
     private void getIndications(Position position_start, Position position_end) {
@@ -283,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
                 this.startActivity(intent);
                 return true;
             case R.id.overflow_trafico:
-                intent = new Intent(MainActivity.this, TrafficActivity.class);
+                intent = new Intent(MainActivity.this, GasStationActivity.class);
                 this.startActivity(intent);
                 return true;
 
@@ -299,48 +322,50 @@ public class MainActivity extends AppCompatActivity {
 
                 if (isGPSEnabled()) {
 
-                    LocationServices.getFusedLocationProviderClient(MainActivity.this).requestLocationUpdates(locationRequest, new LocationCallback() {
-                        @Override
-                        public void onLocationResult(@NonNull LocationResult locationResult) {
-                            super.onLocationResult(locationResult);
+                    try {
+                        LocationServices.getFusedLocationProviderClient(MainActivity.this).requestLocationUpdates(locationRequest, new LocationCallback() {
+                            @Override
+                            public void onLocationResult(@NonNull LocationResult locationResult) {
+                                super.onLocationResult(locationResult);
 
-                            LocationServices.getFusedLocationProviderClient(MainActivity.this).removeLocationUpdates(this);
 
-                            if (locationResult != null && locationResult.getLocations().size() > 0) {
+                                LocationServices.getFusedLocationProviderClient(MainActivity.this).removeLocationUpdates(this);
 
-                                int index = locationResult.getLocations().size() - 1;
-                                position_start.setLat(round(locationResult.getLocations().get(index).getLatitude(), 4));
-                                position_start.setLng(round(locationResult.getLocations().get(index).getLongitude(), 4));
-                                List<Address> addresses;
+                                if (locationResult != null && locationResult.getLocations().size() > 0) {
 
-                                try {
-                                    addresses = geocoder.getFromLocation(position_start.getLat(), position_start.getLng(), 1);
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
+                                    int index = locationResult.getLocations().size() - 1;
+                                    position_start.setLat(round(locationResult.getLocations().get(index).getLatitude(), 4));
+                                    position_start.setLng(round(locationResult.getLocations().get(index).getLongitude(), 4));
+                                    List<Address> addresses;
+
+                                    try {
+                                        addresses = geocoder.getFromLocation(position_start.getLat(), position_start.getLng(), 1);
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    if (!addresses.isEmpty()) {
+                                        String address = addresses.get(0).getAddressLine(0);
+                                        String city = addresses.get(0).getLocality();
+                                        String state = addresses.get(0).getAdminArea();
+                                        String country = addresses.get(0).getCountryName();
+                                        String postalCode = addresses.get(0).getPostalCode();
+                                        String knownName = addresses.get(0).getFeatureName();
+                                        tv_country_content.setText(country);
+                                        tv_city_content.setText(city);
+                                        tv_state_content.setText(state);
+                                        tv_postal_code_content.setText(postalCode);
+
+                                        final int mid = address.length() / 2; //get the middle of the String
+                                        String[] parts = {address.substring(0, mid), address.substring(mid)};
+
+                                        tv_address_content.setText(parts[0] + "\n" + parts[1]);
+                                    }
                                 }
-                                if (!addresses.isEmpty()) {
-                                    String address = addresses.get(0).getAddressLine(0);
-                                    String city = addresses.get(0).getLocality();
-                                    String state = addresses.get(0).getAdminArea();
-                                    String country = addresses.get(0).getCountryName();
-                                    String postalCode = addresses.get(0).getPostalCode();
-                                    String knownName = addresses.get(0).getFeatureName();
-                                    tv_country_content.setText(country);
-                                    tv_city_content.setText(city);
-                                    tv_state_content.setText(state);
-                                    tv_postal_code_content.setText(postalCode);
-
-                                    final int mid = address.length() / 2; //get the middle of the String
-                                    String[] parts = {address.substring(0, mid), address.substring(mid)};
-
-                                    tv_address_content.setText(parts[0] + "\n" + parts[1]);
-
-
-                                }
-
                             }
-                        }
-                    }, Looper.getMainLooper());
+                        }, Looper.getMainLooper());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                 } else {
                     turnOnGPS();

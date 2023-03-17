@@ -112,7 +112,7 @@ public class GaleryActivity extends AppCompatActivity {
                 this.startActivity(intent);
                 return true;
             case R.id.overflow_trafico:
-                intent = new Intent(GaleryActivity.this, TrafficActivity.class);
+                intent = new Intent(GaleryActivity.this, GasStationActivity.class);
                 this.startActivity(intent);
                 return true;
 
