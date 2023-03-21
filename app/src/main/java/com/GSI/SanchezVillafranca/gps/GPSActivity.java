@@ -61,6 +61,9 @@ public class GPSActivity extends AppCompatActivity {
     private LocationRequest locationRequest;
     private Geocoder geocoder;
 
+    public GPSActivity() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,17 +95,10 @@ public class GPSActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-//                LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-
-
                 while (isRunning) {
                     try {
-//                        @SuppressLint("MissingPermission") Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//                        GeoPoint gp = new GeoPoint(location.getLatitude(), location.getLongitude());
-//                        geoPoints.add(gp);
                         getCurrentLocation();
-                        Thread.sleep(3000); // espera 3 segundos
+                        Thread.sleep(15000); // espera 15 segundos
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -114,7 +110,7 @@ public class GPSActivity extends AppCompatActivity {
         rute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    if (!calculateLocalization) {
+                if (!calculateLocalization) {
                     try {
                         locationThread.start();
                         calculateLocalization = true;
@@ -131,21 +127,12 @@ public class GPSActivity extends AppCompatActivity {
                     locationThread.interrupt();
                     calculateLocalization = false;
                     generateMap();
-                    for (GeoPoint gp : geoPoints) {
-                        text += gp.toString() + "\n";
-                    }
-                    gps_tv_description.setText(text);
                     rute.setText("Eliminar Trayecto");
                 }
             }
         });
     }
 
-
-    public GPSActivity() {
-
-
-    }
 
     private void generateMap() {
         Context ctx = this.getApplicationContext();
@@ -164,36 +151,15 @@ public class GPSActivity extends AppCompatActivity {
         compassOverlay.enableCompass();
         mapView.getOverlays().add(compassOverlay);
 
-//        geoPoints.add(new GeoPoint(38.987781, -3.921107));
-//        geoPoints.add(new GeoPoint(38.988812, -3.921553));
-//        geoPoints.add(new GeoPoint(38.989209, -3.921579));
-//        geoPoints.add(new GeoPoint(38.989546, -3.921617));
-//        geoPoints.add(new GeoPoint(38.989923, -3.921668));
-//        geoPoints.add(new GeoPoint(38.990181, -3.921706));
-//        geoPoints.add(new GeoPoint(38.990349, -3.921719));
-//        geoPoints.add(new GeoPoint(38.990379, -3.921451));
-//        geoPoints.add(new GeoPoint(38.990448, -3.921043));
-//        geoPoints.add(new GeoPoint(38.990587, -3.920379));
-//        geoPoints.add(new GeoPoint(38.990716, -3.919856));
-//        geoPoints.add(new GeoPoint(38.990706, -3.919499));
-//        geoPoints.add(new GeoPoint(38.990815, -3.919410));
-//        geoPoints.add(new GeoPoint(38.991133, -3.919588));
-//        geoPoints.add(new GeoPoint(38.991133, -3.919588));
-//        geoPoints.add(new GeoPoint(38.991738, -3.919741));
-//        geoPoints.add(new GeoPoint(38.991817, -3.919576));
-//        geoPoints.add(new GeoPoint(38.992016, -3.919709));
-//        geoPoints.add(new GeoPoint(38.992163, -3.919929));
-
-
-//        geoPoints.add(new GeoPoint(39.86183, -4.02523));
-//        geoPoints.add(new GeoPoint(40.4165000, -3.7025600));
+//        geoPoints.add(new GeoPoint(38.990311, -3.921643));
+//        geoPoints.add(new GeoPoint(38.990701, -3.919632));
 
 
         generateMarker(geoPoints.get(0), R.drawable.ic_people_blue, "Origen");
         generateMarker(geoPoints.get(geoPoints.size() - 1), R.drawable.ic_location_red, "Destino");
 
         Polyline polyline = new Polyline();
-        polyline.setColor(Color.parseColor("#3944BC"));
+        polyline.setColor(Color.parseColor("#008080"));
         polyline.setPoints(geoPoints);
         mapView.getOverlayManager().add(polyline);
         mapView.getController().setCenter(geoPoints.get(geoPoints.size() / 2));
